@@ -189,8 +189,6 @@ class XmlXPathParser
     /**
      * Parse a child value.
      *
-     * @param string            $xmlStr
-     *   Source XML string.
      * @param \SimpleXMLElement $child
      *   Child element.
      * @param array | string    $source
@@ -199,7 +197,7 @@ class XmlXPathParser
      * @return mixed|null|string
      *   The parsed value.
      */
-    private function parseChildValue(string $xmlStr, \SimpleXMLElement $child, $source)
+    private function parseChildValue(\SimpleXMLElement $child, $source)
     {
         $value = null;
 
