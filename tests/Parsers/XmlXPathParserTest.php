@@ -27,7 +27,7 @@ class XmlXPathParserTest extends TestCase
           $container,
           new FileLocator(__DIR__.'/Resources')
         );
-        $loader->load('xml_parser.yaml');
+        $loader->load('xml_parsers.yaml');
 
         $this->xmlParser = new XmlXPathParser($container, $logger);
     }

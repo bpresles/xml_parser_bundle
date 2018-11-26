@@ -15,7 +15,7 @@ To parse an XPath file, you need to:
 
 ````yaml
 parameters:
-  xml_parser.mappings:
+  xml_parsers.mappings:
     mapping_a:
       destination_class: 'App\Entity\EntityName'
       base_root: '//namespace:XMLNode/XMLSubNode'
@@ -135,7 +135,7 @@ Then indicate in the mapping the fully qualified name of your processor as follo
 
 ````yaml
 parameters:
-  xml_parser.mappings:
+  xml_parsers.mappings:
     mapping_a:
       destination_class: 'App\Entity\EntityName'
       base_root: '//namespace:XMLNode/XMLSubNode'
