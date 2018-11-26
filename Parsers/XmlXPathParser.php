@@ -236,11 +236,11 @@ class XmlXPathParser
     /**
      * Set the result value depending on passed parameters.
      *
-     * @param boolean                                                                                   $isMultiple
+     * @param boolean                                                                                 $isMultiple
      *   When there are more than one XML nodes.
-     * @param boolean                                                                                   $isDoctrine
+     * @param boolean                                                                                 $isDoctrine
      *   Whether the destination class is a doctrine entity.
-     * @param \Niji\XmlParserBundle\XmlParsingTrait | array                                            $value
+     * @param \Niji\XmlParserBundle\XmlParsingTrait | array                                           $value
      *   The value to add to the result.
      * @param \Niji\XmlParserBundle\XmlParsingTrait | \Niji\XmlParserBundle\XmlParsingTrait[] | array $result
      *   The existing $result (if exists).

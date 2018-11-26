@@ -30,6 +30,8 @@ class XmlParserExtension extends Extension
      *
      * @throws \Exception
      *   Whenever an error occurs.
+     *
+     * @SuppressWarnings("unused")
      */
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -37,7 +39,6 @@ class XmlParserExtension extends Extension
             $container,
             new FileLocator(__DIR__.'/../Resources/config')
         );
-        $loader->load($configs);
         $loader->load('parsers.yaml');
     }
 }
