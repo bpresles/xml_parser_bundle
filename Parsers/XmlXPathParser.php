@@ -180,7 +180,7 @@ class XmlXPathParser
             $destinationClass = !empty($source['destination_class']) ? $source['destination_class'] : null;
             $value = $this->xPathParse($xmlStr, $source['base_root'], $source['mapping'], $destinationClass, $child);
         } else {
-            $value = $this->parseChildValue($xmlStr, $child, $source);
+            $value = $this->parseChildValue($child, $source);
         }
 
         return $value;
