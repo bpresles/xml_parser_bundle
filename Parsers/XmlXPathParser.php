@@ -177,7 +177,8 @@ class XmlXPathParser
     private function parseChild(string $xmlStr, $source, $child)
     {
         if (!empty($source['mapping'])) {
-            $value = $this->xPathParse($xmlStr, $source['base_root'], $source['mapping'], $source['destination_class'], $child);
+            $destinationClass = !empty($source['destination_class']) ? $source['destination_class'] : null;
+            $value = $this->xPathParse($xmlStr, $source['base_root'], $source['mapping'], $destinationClass, $child);
         } else {
             $value = $this->parseChildValue($xmlStr, $child, $source);
         }
@@ -202,32 +203,21 @@ class XmlXPathParser
     {
         $value = null;
 
-        if (!empty($source['mapping'])) {
-            $childDestinationClass = !empty($source['destination_class']) ? $source['destination_class'] : null;
-            $value = $this->xPathParse(
-                $xmlStr,
-                $source['base_root'],
-                $source['mapping'],
-                $childDestinationClass,
-                $child
-            );
-        } else {
-            $childXPath = !empty($source['processor']) ? $source['source'] : $source;
-            $this->logger->debug('Parsing '.$childXPath.' field');
+        $childXPath = !empty($source['processor']) ? $source['source'] : $source;
+        $this->logger->debug('Parsing '.$childXPath.' field');
 
-            $values = $child->xpath($childXPath);
-            $value = !empty($values) ? ''.$values[0] : null;
+        $values = $child->xpath($childXPath);
+        $value = !empty($values) ? ''.$values[0] : null;
 
-            if (!empty($source['processor'])) {
-                $processorClass = $source['processor'];
-                $config = isset($source['config']) ? $source['config'] : [];
+        if (!empty($source['processor'])) {
+            $processorClass = $source['processor'];
+            $config = isset($source['config']) ? $source['config'] : [];
 
-                /** @var XmlParsingProcessorInterface $processor */
-                $processor = new $processorClass();
+            /** @var XmlParsingProcessorInterface $processor */
+            $processor = new $processorClass();
 
-                $this->logger->debug('Processing '.$value.' field using '.$source['processor']);
-                $value = $processor->process($value, $config);
-            }
+            $this->logger->debug('Processing '.$value.' field using '.$source['processor']);
+            $value = $processor->process($value, $config);
         }
 
         return $value;
