@@ -1,0 +1,35 @@
+parameters:
+  xml_parsers.mappings:
+      test:
+        destination_class: 'Niji\XmlParserBundle\tests\Entity\Person'
+        base_root: '/Main/Person'
+        mapping:
+          name: 'Name'
+          firstname: 'Firstname'
+      test2:
+        destination_class: 'Niji\XmlParserBundle\tests\Entity\Person'
+        base_root: '/Main/Person'
+        mapping:
+          name:
+            source: 'Name'
+            processor: 'Niji\XmlParserBundle\tests\Processor\HelloWorldProcessor'
+          firstname: 'Firstname'
+      test3:
+        destination_class: 'Niji\XmlParserBundle\tests\Entity\Person3'
+        base_root: '/Main/Person'
+        mapping:
+          name: 'Name'
+          firstname: 'Firstname'
+          children:
+            destination_class: 'Niji\XmlParserBundle\tests\Entity\Child'
+            base_root: 'Children/Child'
+            mapping:
+              name: 'Name'
+              firstname: 'Firstname'
+      test_array:
+        base_root: '/Main/Person'
+        mapping:
+          name: 'Name'
+          firstname: 'Firstname'
+
+

@@ -1,0 +1,47 @@
+{
+  "name": "niji/xml-parser-bundle",
+  "type": "symfony-bundle",
+  "description": "Symfony bundle that allows easy parsing of XML documents using a YAML mapping file and XPath.",
+  "keywords": [
+    "XML",
+    "XMLParser",
+    "XmlParserBundle",
+    "Symfony"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bertrand Presles",
+      "email": "bertrand.presles@niji.fr"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "ext-simplexml": "*",
+    "doctrine/common": "^2.9",
+    "doctrine/doctrine-bundle": "^1.9",
+    "doctrine/orm": "^2.4.5",
+    "symfony/framework-bundle": "^3.0 || ^4.0",
+    "symfony/monolog-bundle": "^3.3",
+    "symfony/yaml": "^3.0 || ^4.0"
+  },
+  "require-dev": {
+    "symfony/phpunit-bridge": "^3.0 || ^4.0"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Niji\\XmlParserBundle\\": ""
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Niji\\XmlParserBundle\\Tests\\": "/Tests/"
+    }
+  }
+}

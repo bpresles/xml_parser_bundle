@@ -1,0 +1,13 @@
+parameters:
+  niji.xml_parser.xpath.class: 'Niji\XmlParserBundle\Parsers\XmlXPathParser'
+
+services:
+  Niji\XmlParserBundle\Parsers\XmlXPathParser:
+    class: '%niji.xml_parser.xpath.class%'
+    arguments:
+      - '@service_container'
+      - '@logger'
+      - '@doctrine.orm.entity_manager'
+
+  niji.xml_parser.xpath:
+    alias: Niji\XmlParserBundle\Parsers\XmlXPathParser
