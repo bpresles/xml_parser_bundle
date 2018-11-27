@@ -97,4 +97,21 @@ class XmlXPathParserTest extends TestCase
         $this->assertEquals('Name3', $persons[2]['name'],'Unexpected name value');
         $this->assertEquals('FirstName3', $persons[2]['firstname'],'Unexpected firstname value');
     }
+
+    public function testChildrenArrayParse()
+    {
+        $xmlStr = file_get_contents(realpath(__DIR__.'/Resources/input/Test3.XML'));
+
+        $person = $this->xmlParser->parse($xmlStr, 'test_array_children');
+
+        $this->assertNotEmpty($person, 'No partners parsed');
+        $this->assertTrue(is_array($person), 'Invalid return type');
+        $this->assertCount(2, $person['children'], 'Invalid number of partners found');
+        $this->assertEquals('Name', $person['name'],'Unexpected name value');
+        $this->assertEquals('FirstName', $person['firstname'],'Unexpected firstname value');
+        $this->assertEquals('SonName', $person['children'][0]['name'],'Unexpected son name value');
+        $this->assertEquals('SonFirstname', $person['children'][0]['firstname'],'Unexpected son firstname value');
+        $this->assertEquals('SonName2', $person['children'][1]['name'],'Unexpected second son name value');
+        $this->assertEquals('SonFirstname2', $person['children'][1]['firstname'],'Unexpected second son firstname value');
+    }
 }

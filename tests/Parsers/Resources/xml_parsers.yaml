@@ -31,5 +31,15 @@ parameters:
         mapping:
           name: 'Name'
           firstname: 'Firstname'
+      test_array_children:
+        base_root: '/Main/Person'
+        mapping:
+          name: 'Name'
+          firstname: 'Firstname'
+          children:
+            base_root: 'Children/Child'
+            mapping:
+              name: 'Name'
+              firstname: 'Firstname'
 
 
