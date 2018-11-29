@@ -10,6 +10,7 @@ namespace Niji\XmlParserBundle\Parsers;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Proxy\Proxy;
 use Niji\XmlParserBundle\Processor\XmlParsingProcessorInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -252,13 +253,20 @@ class XmlXPathParser
      * Check whether the passed class is a Doctrine entity.
      *
      * @param string $className
-     *   Class name.
+     *   Fully qualified class name.
      *
      * @return boolean
      *   Whether it's a Doctrine entity or not.
      */
     private function isDoctrineEntity(string $className)
     {
-        return isset($this->em) ? ! $this->em->getMetadataFactory()->isTransient($className) : false;
+        $class = new $className();
+        if (is_object($class)) {
+            $class = ($class instanceof Proxy)
+              ? get_parent_class($class)
+              : get_class($class);
+        }
+
+        return ! $this->em->getMetadataFactory()->isTransient($class);
     }
 }
