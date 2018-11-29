@@ -41,5 +41,59 @@ parameters:
             mapping:
               name: 'Name'
               firstname: 'Firstname'
+      test_multiple_children:
+        destination_class: 'Niji\XmlParserBundle\tests\Entity\Person4'
+        base_root: '/Main/Person'
+        mapping:
+          name: 'Name'
+          firstname: 'Firstname'
+          children:
+            destination_class: 'Niji\XmlParserBundle\tests\Entity\Child'
+            base_root: 'Children/Child'
+            mapping:
+              name: 'Name'
+              firstname: 'Firstname'
+              toys:
+                destination_class: 'Niji\XmlParserBundle\tests\Entity\Toy'
+                base_root: 'Toys/Toy'
+                mapping:
+                  name: 'Name'
+          brothers:
+            destination_class: 'Niji\XmlParserBundle\tests\Entity\Brother'
+            base_root: 'Brothers/Brother'
+            mapping:
+              name: 'Name'
+              firstname: 'Firstname'
+          uncles:
+            destination_class: 'Niji\XmlParserBundle\tests\Entity\Uncle'
+            base_root: 'Uncles/Uncle'
+            mapping:
+              name: 'Name'
+              firstname: 'Firstname'
+      test_array_multiple_children:
+        base_root: '/Main/Person'
+        mapping:
+          name: 'Name'
+          firstname: 'Firstname'
+          children:
+            base_root: 'Children/Child'
+            mapping:
+              name: 'Name'
+              firstname: 'Firstname'
+              toys:
+                base_root: 'Toys/Toy'
+                mapping:
+                  name: 'Name'
+          brothers:
+            base_root: 'Brothers/Brother'
+            mapping:
+              name: 'Name'
+              firstname: 'Firstname'
+          uncles:
+            base_root: 'Uncles/Uncle'
+            mapping:
+              name: 'Name'
+              firstname: 'Firstname'
+
 
 

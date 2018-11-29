@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+    <Person>
+        <Name>Name</Name>
+        <Firstname>FirstName</Firstname>
+        <Children>
+            <Child>
+                <Name>SonName</Name>
+                <Firstname>SonFirstname</Firstname>
+                <Toys>
+                    <Toy>
+                        <Name>Spiderman</Name>
+                    </Toy>
+                    <Toy>
+                        <Name>GameGear</Name>
+                    </Toy>
+                </Toys>
+            </Child>
+            <Child>
+                <Name>SonName2</Name>
+                <Firstname>SonFirstname2</Firstname>
+                <Toys>
+                    <Toy>
+                        <Name>Buzz l'éclair</Name>
+                    </Toy>
+                    <Toy>
+                        <Name>Gameboy</Name>
+                    </Toy>
+                </Toys>
+            </Child>
+        </Children>
+        <Brothers>
+            <Brother>
+                <Name>BrotherName</Name>
+                <Firstname>BrotherFirstname</Firstname>
+            </Brother>
+            <Brother>
+                <Name>BrotherName2</Name>
+                <Firstname>BrotherFirstname2</Firstname>
+            </Brother>
+        </Brothers>
+        <Uncles>
+            <Uncle>
+                <Name>UncleName</Name>
+                <Firstname>UncleFirstname</Firstname>
+            </Uncle>
+            <Uncle>
+                <Name>UncleName2</Name>
+                <Firstname>UncleFirstname2</Firstname>
+            </Uncle>
+        </Uncles>
+    </Person>
+</Main>

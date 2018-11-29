@@ -3,7 +3,10 @@
 ## -----------------
 ##
 tests: ## Launch PHPUnit tests
-	docker run -v "$(PWD)":/code --network="bridge" --rm wodby/php:7.2 sh -c "cd /code; composer install --dev; ./vendor/bin/simple-phpunit"
+	docker run -e "PHP_XDEBUG=1" -e "PHP_XDEBUG_DEFAULT_ENABLE" -e "PHP_XDEBUG_REMOTE_HOST=host.docker.internal" -v "$(PWD)":/code --network="bridge" --rm wodby/php:7.2 sh -c "cd /code; composer install --dev; ./vendor/bin/simple-phpunit"
+
+tests-debug: ## Launch PHPUnit tests with XDebug enabled
+	docker run -e "PHP_XDEBUG=1" -e "PHP_XDEBUG_DEFAULT_ENABLE" -e "PHP_XDEBUG_REMOTE_HOST=host.docker.internal" -v "$(PWD)":/code --network="bridge" --rm wodby/php:7.2 sh -c "cd /code; composer install --dev; ./vendor/bin/simple-phpunit"
 
 quality-gate: ## Launch PHP code sniffer and PHPMD
 	docker run -v "$(PWD)":/code --rm niji/php-quality-tools:latest phpcs --standard=phpcs.xml.dist
