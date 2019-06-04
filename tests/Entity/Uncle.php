@@ -4,13 +4,11 @@ namespace Niji\XmlParserBundle\tests\Entity;
 
 use Niji\XmlParserBundle\XmlParsingTrait;
 
-class Child
+class Uncle
 {
     use XmlParsingTrait;
 
     protected $name;
 
     protected $firstname;
-
-    protected $toys;
 }
